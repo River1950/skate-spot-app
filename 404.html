@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/skate-spot-app/skater-logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0, user-scalable=yes" />
+
+    <!-- Primary Meta Tags -->
+    <title>滑板场地推荐 - 发现你的下一个滑板圣地</title>
+    <meta name="title" content="滑板场地推荐 - 发现你的下一个滑板圣地" />
+    <meta name="description" content="智能推荐周边适合你的滑板场地，覆盖全国12个主要城市，133+专业场地数据。基于技能等级、场地类型和距离的多维度推荐。" />
+    <meta name="keywords" content="滑板,滑板场地,滑板公园,滑板地图,街式滑板,滑板推荐,skate spot,skateboard park" />
+    <meta name="author" content="滑板场地推荐团队" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/skate-spot-app/manifest.json" />
+
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="滑板场地" />
+    <link rel="apple-touch-icon" href="/skate-spot-app/icon-180.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/skate-spot-app/icon-152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/skate-spot-app/icon-180.png" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#667eea" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#667eea" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://skate-spot.app/" />
+    <meta property="og:title" content="滑板场地推荐 - 发现你的下一个滑板圣地" />
+    <meta property="og:description" content="智能推荐周边适合你的滑板场地，覆盖全国12个主要城市，133+专业场地数据" />
+    <meta property="og:image" content="/screenshot-mobile.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://skate-spot.app/" />
+    <meta property="twitter:title" content="滑板场地推荐 - 发现你的下一个滑板圣地" />
+    <meta property="twitter:description" content="智能推荐周边适合你的滑板场地" />
+    <meta property="twitter:image" content="/screenshot-mobile.png" />
+
+    <!-- Splash Screen -->
+    <style>
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+      #splash-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .splash-logo {
+        font-size: 72px;
+        margin-bottom: 20px;
+        animation: bounce 2s infinite;
+      }
+      .splash-text {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        margin-bottom: 10px;
+      }
+      .splash-subtitle {
+        color: rgba(255,255,255,0.8);
+        font-size: 14px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      .spinner {
+        margin-top: 30px;
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255,255,255,0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script type="module" crossorigin src="/skate-spot-app/assets/index-BrIKV_n4.js"></script>
+    <link rel="stylesheet" crossorigin href="/skate-spot-app/assets/index-BJ6ZCduZ.css">
+  </head>
+  <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+      <div class="splash-logo">🛹</div>
+      <div class="splash-text">滑板场地推荐</div>
+      <div class="splash-subtitle">发现你的下一个滑板圣地</div>
+      <div class="spinner"></div>
+    </div>
+
+    <div id="root"></div>
+
+    <script>
+      // Hide splash screen when app is loaded
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const splash = document.getElementById('splash-screen');
+          if (splash) {
+            splash.classList.add('hidden');
+            setTimeout(() => splash.remove(), 500);
+          }
+        }, 1000);
+      });
+
+      // Register service worker for PWA
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => console.log('SW registered:', registration))
+            .catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>
