@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 350" fill="none">
+  <!-- 板板 标准形态 - 站在滑板上打招呼 -->
+
+  <!-- 滑板 -->
+  <g id="skateboard">
+    <!-- 滑板面 - 红色 -->
+    <rect x="80" y="280" width="140" height="15" rx="7" fill="#FF3B30" stroke="#000000" stroke-width="2"/>
+    <!-- 左轮 -->
+    <circle cx="100" cy="295" r="10" fill="#000000"/>
+    <!-- 右轮 -->
+    <circle cx="200" cy="295" r="10" fill="#000000"/>
+  </g>
+
+  <!-- 身体 - 白色椭圆 -->
+  <ellipse cx="150" cy="200" rx="50" ry="60" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+
+  <!-- 左臂（抬起打招呼） -->
+  <g id="left-arm">
+    <!-- 上臂 -->
+    <line x1="120" y1="180" x2="80" y2="140" stroke="#000000" stroke-width="10" stroke-linecap="round"/>
+    <!-- 下臂 -->
+    <line x1="80" y1="140" x2="70" y2="100" stroke="#000000" stroke-width="10" stroke-linecap="round"/>
+    <!-- 手掌 -->
+    <circle cx="70" cy="95" r="10" fill="#000000"/>
+  </g>
+
+  <!-- 右臂（放下） -->
+  <g id="right-arm">
+    <!-- 上臂 -->
+    <line x1="180" y1="180" x2="200" y2="220" stroke="#000000" stroke-width="10" stroke-linecap="round"/>
+    <!-- 下臂 -->
+    <line x1="200" y1="220" x2="210" y2="250" stroke="#000000" stroke-width="10" stroke-linecap="round"/>
+    <!-- 手掌 -->
+    <circle cx="210" cy="255" r="10" fill="#000000"/>
+  </g>
+
+  <!-- 头部 - 白色圆形 -->
+  <circle cx="150" cy="120" r="55" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+
+  <!-- 左耳 -->
+  <circle cx="120" cy="75" r="18" fill="#000000"/>
+
+  <!-- 右耳 -->
+  <circle cx="180" cy="75" r="18" fill="#000000"/>
+
+  <!-- 左眼斑 -->
+  <ellipse cx="130" cy="115" rx="16" ry="22" fill="#000000"/>
+
+  <!-- 右眼斑 -->
+  <ellipse cx="170" cy="115" rx="16" ry="22" fill="#000000"/>
+
+  <!-- 左眼高光 -->
+  <ellipse cx="133" cy="110" rx="5" ry="7" fill="#FFFFFF"/>
+
+  <!-- 右眼高光 -->
+  <ellipse cx="173" cy="110" rx="5" ry="7" fill="#FFFFFF"/>
+
+  <!-- 鼻子 -->
+  <circle cx="150" cy="130" r="7" fill="#000000"/>
+
+  <!-- 嘴巴 - 开心的微笑 -->
+  <path d="M 135 140 Q 150 150 165 140" stroke="#000000" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- 左腿 -->
+  <g id="left-leg">
+    <line x1="135" y1="260" x2="130" y2="280" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <!-- 右腿 -->
+  <g id="right-leg">
+    <line x1="165" y1="260" x2="170" y2="280" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>
